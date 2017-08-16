@@ -3,11 +3,12 @@
 namespace BrooksYang\Entrance\Models;
 
 use BrooksYang\Entrance\Traits\EntranceGroupTrait;
+use BrooksYang\Entrance\Traits\KeywordSearchTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    use EntranceGroupTrait;
+    use EntranceGroupTrait, KeywordSearchTrait;
 
     /**
      * The database table used by the model.

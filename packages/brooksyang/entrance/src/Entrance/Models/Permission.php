@@ -4,11 +4,12 @@ namespace BrooksYang\Entrance\Models;
 
 use BrooksYang\Entrance\Contracts\PermissionInterface;
 use BrooksYang\Entrance\Traits\EntrancePermissionTrait;
+use BrooksYang\Entrance\Traits\KeywordSearchTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Permission extends Model implements PermissionInterface
 {
-    use EntrancePermissionTrait;
+    use EntrancePermissionTrait, KeywordSearchTrait;
 
     /**
      * The database table used by the model.

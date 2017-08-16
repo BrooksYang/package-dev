@@ -4,11 +4,12 @@ namespace BrooksYang\Entrance\Models;
 
 use BrooksYang\Entrance\Contracts\ModuleInterface;
 use BrooksYang\Entrance\Traits\EntranceModuleTrait;
+use BrooksYang\Entrance\Traits\KeywordSearchTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model implements ModuleInterface
 {
-    use EntranceModuleTrait;
+    use EntranceModuleTrait, KeywordSearchTrait;
 
     /**
      * The database table used by the model.
@@ -26,17 +27,5 @@ class Module extends Model implements ModuleInterface
     {
         parent::__construct($attributes);
         $this->table = config('entrance.modules_table');
-    }
-
-    /**
-     * keyword search
-     *
-     * @param $query
-     * @param $keyword
-     * @return mixed
-     */
-    public function scopeSearch($query, $keyword)
-    {
-        return $query->where('name', 'like', "%$keyword%");
     }
 }
