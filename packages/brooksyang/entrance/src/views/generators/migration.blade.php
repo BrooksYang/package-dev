@@ -43,8 +43,18 @@ class EntranceSetupTables extends Migration
         Schema::create('{{ $modulesTable }}', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique()->comment('module name');
-            $table->string('icon',255);
             $table->string('description')->nullable()->comment('A more detailed explanation of the module.');
+            $table->string('icon',255);
+            $table->integer('group_id');
+            $table->timestamps();
+        });
+
+        // Create table for storing modules
+        Schema::create('{{ $groupsTable }}', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique()->comment('group name');
+            $table->string('description')->nullable()->comment('A more detailed explanation of the group.');
+            $table->integer('order')->unsigned()->nullable()->comment('The order of the group');
             $table->timestamps();
         });
 
