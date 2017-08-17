@@ -55,7 +55,7 @@ trait EntranceUserTrait
     {
         $cachedKey = $this->cachedMenuKey();
 
-        return Cache::tags('role_users')->remember($cachedKey, config('session.lifetime'), function () {
+        return Cache::tags('user_menus')->remember($cachedKey, config('session.lifetime'), function () {
 
             // 获取该角色拥有的权限id，及所属模块id
             $permissions = $this->cachedRole()->permissions();
