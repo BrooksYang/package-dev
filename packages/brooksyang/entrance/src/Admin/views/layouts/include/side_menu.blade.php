@@ -40,13 +40,14 @@
                                     </a>
 
                                     {{-- Permissions --}}
-                                    @foreach ($module->permissions as $permission)
-                                        <ul>
+                                    <ul>
+                                        @foreach ($module->permissions as $permission)
                                             <li>
-                                                <a href="{{ url($permission->uri) }}" title="Index">{{ $permission->name }}</a>
+                                                <a href="{{ url($permission->uri) }}"
+                                                   title="Index">{{ $permission->name }}</a>
                                             </li>
-                                        </ul>
-                                    @endforeach
+                                        @endforeach
+                                    </ul>
                                     {{-- Permissions End --}}
 
                                 </li>
