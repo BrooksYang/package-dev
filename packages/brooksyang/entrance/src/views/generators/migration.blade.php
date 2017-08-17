@@ -27,8 +27,8 @@ class EntranceSetupTables extends Migration
             $table->string('description')->nullable()->comment('A more detailed explanation of the Permission.');
             $table->string('method');
             $table->string('uri');
-            $table->integer('module_id')->defalut(1)->unsigned();
-            $table->tinyInteger('is_visible')->defalut(1)->unsigned()->comment('is visible in module, 0not 1yes');
+            $table->integer('module_id')->unsigned()->default(1);
+            $table->tinyInteger('is_visible')->unsigned()->default(1)->comment('is visible in module, 0not 1yes');
             $table->timestamps();
         });
 
@@ -77,5 +77,6 @@ class EntranceSetupTables extends Migration
         Schema::drop('{{ $permissionsTable }}');
         Schema::drop('{{ $rolesTable }}');
         Schema::drop('{{ $modulesTable }}');
+        Schema::drop('{{ $groupsTable }}');
     }
 }
