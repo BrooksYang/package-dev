@@ -33,7 +33,7 @@
                                                        value="{{ $permission->id }}"
                                                         {{ in_array($permission->id, $permissionIds) ? 'checked' : '' }} >
                                                 {{ $permission->name }}
-                                            </label>
+                                            </label>&nbsp;&nbsp;
                                         @endforeach
                                     </div>
                                 </div>
