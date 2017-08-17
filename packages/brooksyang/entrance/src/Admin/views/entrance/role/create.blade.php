@@ -18,7 +18,7 @@
                         {{ @$editFlag ? method_field('PATCH') : '' }}
 
                         {{-- Name --}}
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                             <div class="col-sm-12">
                                 <input class="form-control input-lg" type="text" name="name" value="{{ $role->name ?? old('name') }}"
                                        placeholder="角色名称">
@@ -29,7 +29,7 @@
                         </div>
 
                         {{-- Description --}}
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
                             <div class="col-sm-12">
                                 <textarea class="form-control" name="description" rows="5"
                                           placeholder="角色简介">{{ $role->description ?? old('description') }}</textarea>
