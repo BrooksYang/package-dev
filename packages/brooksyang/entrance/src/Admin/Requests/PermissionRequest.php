@@ -26,15 +26,16 @@ class PermissionRequest extends FormRequest
      */
     public function rules(Request $request)
     {
-        $table = config('entrance.permissions_table');
         $id = $request->route()->parameter('permission');
         $methods = implode(',', Permission::$methods);
+        $method = $request->get('method');
+        $uri = $request->get('uri');
 
         return [
-            'name'      => "required|unique:$table,name,$id",
+            'name'      => "required",
             'module_id' => 'required',
             'method'    => "required|in:$methods",
-            'uri'       => 'required',
+            'uri'       => "required|permission:$method,$uri,$id",
         ];
     }
 
