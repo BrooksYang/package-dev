@@ -145,10 +145,7 @@ trait EntranceRoleTrait
      */
     public function savePermissions($inputPermissions)
     {
-        if (!empty($inputPermissions)) {
-            $this->permissions()->sync($inputPermissions);
-        } else {
-            $this->permissions()->detach();
-        }
+        $this->permissions()->sync($inputPermissions);
+        Cache::tags('role_permissions')->flush();
     }
 }
