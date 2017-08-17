@@ -30,4 +30,18 @@ class Entrance
     {
         return $this->app->auth->user();
     }
+
+    /**
+     * Get current permission
+     *
+     * @return mixed
+     */
+    public static function currentPermission()
+    {
+        $method = \Request::method();
+        $uri = \Request::route()->uri();
+        $permission = config('entrance.permission');
+
+        return $permission::where(['method' => $method, 'uri' => $uri])->first();
+    }
 }

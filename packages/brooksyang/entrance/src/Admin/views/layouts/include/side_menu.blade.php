@@ -42,7 +42,7 @@
                                     {{-- Permissions --}}
                                     <ul>
                                         @foreach ($module->permissions as $permission)
-                                            <li class="{{ Request::route()->uri() == $permission->uri ? 'active' : '' }}">
+                                            <li class="{{ \Entrance::currentPermission()->module_id == $module->id ? 'active' : '' }}">
                                                 <a href="{{ url($permission->uri) }}" title="Index"
                                                    style="{{ Request::route()->uri() == $permission->uri ? 'color: #5F9BDB!important;' : '' }} ">
                                                     {{ $permission->name }}
