@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="box" style="min-height: 500px">
+            <div class="box">
                 <div class="box-header">
                     {{-- Title --}}
                     <h3 class="box-title">
