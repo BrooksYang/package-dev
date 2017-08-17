@@ -21,7 +21,7 @@
                 {{-- Table --}}
                 <div class="box-body">
                     <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table class="table table-hover table-striped">
                             <tr>
                                 <th>序号</th>
                                 <th>标题</th>

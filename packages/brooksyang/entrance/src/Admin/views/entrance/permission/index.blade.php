@@ -21,7 +21,7 @@
                 {{-- Table --}}
                 <div class="box-body">
                     <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table class="table table-hover table-striped">
                             <tr>
                                 <th>序号</th>
                                 <th>标题</th>
@@ -41,11 +41,11 @@
                                     <td>
                                         @if ($item->method == 'GET')
                                             <span class="label label-primary">{{ $item->method }}</span>
-                                            @elseif ($item->method == 'POST')
+                                        @elseif ($item->method == 'POST')
                                             <span class="label label-success">{{ $item->method }}</span>
-                                            @elseif (in_array($item->method, ['PUT', 'PATCH']))
+                                        @elseif (in_array($item->method, ['PUT', 'PATCH']))
                                             <span class="label label-warning">{{ $item->method }}</span>
-                                            @elseif ($item->method == 'DELETE')
+                                        @elseif ($item->method == 'DELETE')
                                             <span class="label label-danger">{{ $item->method }}</span>
                                         @endif
                                     </td>
@@ -53,7 +53,7 @@
                                     <td>
                                         @if ($item->is_visible)
                                             <span class="label label-success">是</span>
-                                            @else
+                                        @else
                                             <span class="label label-danger">否</span>
                                         @endif
                                     </td>
