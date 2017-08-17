@@ -9,18 +9,25 @@
             <div id="tree-wrap">
                 <div class="side-bar">
                     <ul id="menu-showhide" class="topnav">
+                        {{-- Dashboard --}}
+                        <li class="devider-title">
+                            <h3>
+                                <span>Dashboard</span>
+                            </h3>
+                        </li>
+                        <li>
+                            <a href="{{ url('') }}" title="Dashboard">
+                                <i class="fontello-desktop-1"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
                         {{-- Groups --}}
                         @foreach (Auth::user()->menus() as $group)
                             <li class="devider-title">
                                 <h3>
                                     <span>{{ $group->name }}</span>
                                 </h3>
-                            </li>
-                            <li>
-                                <a href="#" title="Dashboard">
-                                    <i class="fontello-desktop-1"></i>
-                                    <span>Dashboard</span>
-                                </a>
                             </li>
 
                             {{-- Modules --}}
