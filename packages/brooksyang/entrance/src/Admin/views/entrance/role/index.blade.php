@@ -34,7 +34,7 @@
                                     <td>{{ ($key + 1) + ($roles->currentPage() - 1) * $roles->perPage() }}</td>
                                     <td><strong>{{ $item->name }}</strong></td>
                                     <td>{{ $item->description }}</td>
-                                    <td><a href="{{ url("auth/roles/$item->id/permissions") }}">分配</a></td>
+                                    <td><a href="{{ url("auth/roles/$item->id/permissions") }}">查看</a></td>
                                     <td>
                                         <a href="{{ url("auth/roles/$item->id/edit") }}">
                                             <i class="fontello-edit" title="编辑"></i>

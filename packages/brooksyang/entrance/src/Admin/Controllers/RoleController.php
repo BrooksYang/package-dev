@@ -2,6 +2,7 @@
 
 namespace BrooksYang\Entrance\Controllers;
 
+use BrooksYang\Entrance\Models\Module;
 use BrooksYang\Entrance\Models\Role;
 use BrooksYang\Entrance\Requests\RoleRequest;
 use Illuminate\Http\Request;
@@ -108,5 +109,38 @@ class RoleController extends Controller
         $role->delete();
 
         return response()->json();
+    }
+
+    /**
+     * 查看角色拥有的权限
+     *
+     * @param $roleId
+     * @return \Illuminate\Http\Response
+     */
+    public function permissions($roleId)
+    {
+        // 按模块获取权限
+        $modules = Module::with('permissions')->get();
+
+        // 获取当前角色拥有的权限id
+        $permissionIds = Role::find($roleId)->permissions()->pluck('id')->toArray();
+
+        return view('entrance::entrance.role.permissions', compact('roleId', 'modules', 'permissionIds'));
+    }
+
+    /**
+     * 更新角色权限
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function permissionsSync(Request $request, $id)
+    {
+        $role = Role::findOrFail($id);
+
+        $role->savePermissions($request->get('permissions'));
+
+        return redirect('auth/roles');
     }
 }
