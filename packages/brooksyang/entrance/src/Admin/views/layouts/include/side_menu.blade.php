@@ -42,9 +42,11 @@
                                     {{-- Permissions --}}
                                     <ul>
                                         @foreach ($module->permissions as $permission)
-                                            <li>
-                                                <a href="{{ url($permission->uri) }}"
-                                                   title="Index">{{ $permission->name }}</a>
+                                            <li class="{{ Request::route()->uri() == $permission->uri ? 'active' : '' }}">
+                                                <a href="{{ url($permission->uri) }}" title="Index"
+                                                   style="{{ Request::route()->uri() == $permission->uri ? 'color: #5F9BDB!important;' : '' }} ">
+                                                    {{ $permission->name }}
+                                                </a>
                                             </li>
                                         @endforeach
                                     </ul>
