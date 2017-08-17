@@ -51,7 +51,7 @@ trait EntranceUserTrait
      *
      * @return int
      */
-    public function menu()
+    public function menus()
     {
         $cachedKey = $this->cachedMenuKey();
 

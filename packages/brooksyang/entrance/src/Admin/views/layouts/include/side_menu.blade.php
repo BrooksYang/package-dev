@@ -10,7 +10,7 @@
                 <div class="side-bar">
                     <ul id="menu-showhide" class="topnav">
                         {{-- Groups --}}
-                        @foreach (Auth::user()->menu() as $group)
+                        @foreach (Auth::user()->menus() as $group)
                             <li class="devider-title">
                                 <h3>
                                     <span>{{ $group->name }}</span>
@@ -58,5 +58,4 @@
             </div>
         </div>
     </div>
-    <!-- END OF SIDE MENU -->
 </div>
