@@ -53,6 +53,7 @@ class PermissionRequest extends FormRequest
             'method.required'    => '请选择请求方法',
             'method.in'          => '请求方法不正确',
             'uri.required'       => '请输入URI',
+            'uri.permission'     => '该权限已存在',
         ];
     }
 }
