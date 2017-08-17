@@ -28,4 +28,11 @@ class Permission extends Model implements PermissionInterface
         parent::__construct($attributes);
         $this->table = config('entrance.permissions_table');
     }
+
+    /**
+     * Request Methods
+     *
+     * @var array
+     */
+    static $methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'];
 }
