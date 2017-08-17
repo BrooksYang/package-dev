@@ -17,7 +17,7 @@
                         </li>
                         <li>
                             <a href="{{ url('') }}" title="Dashboard">
-                                <i class="fontello-desktop-1"></i>
+                                <i class="fa fa-tachometer"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
