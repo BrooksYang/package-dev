@@ -11,4 +11,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['web', 'auth', 'permission'],
     // Permissions
     Route::resource('permissions', 'PermissionController');
 
+    // Roles
+    Route::resource('roles', 'RoleController');
+
 });
