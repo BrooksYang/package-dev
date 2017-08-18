@@ -47,7 +47,7 @@ trait EntranceUserTrait
     }
 
     /**
-     * Get the menu
+     * Get the menus
      *
      * @return int
      */
@@ -81,6 +81,20 @@ trait EntranceUserTrait
 
             return $groups;
         });
+    }
+
+    /**
+     * Get the breadcrumbs
+     *
+     * @return mixed
+     */
+    public function breadcrumbs()
+    {
+        $method = \Request::method();
+        $uri = \Request::route()->uri();
+        $permission = config('entrance.permission');
+
+        return $permission::with('module.group')->where(['method' => $method, 'uri' => $uri])->first();
     }
 
     /**
