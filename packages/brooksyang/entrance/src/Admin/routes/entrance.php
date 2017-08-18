@@ -5,6 +5,9 @@ Route::group(['prefix' => 'auth', 'middleware' => ['web', 'auth', 'permission'],
     // Groups
     Route::resource('groups', 'GroupController');
 
+    // Group order
+    Route::get('groups/{group}/move/{action}', 'GroupController@move');
+
     // Modules
     Route::resource('modules', 'ModuleController');
 

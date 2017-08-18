@@ -36,9 +36,22 @@
                                     <td>{{ $item->description }}</td>
                                     <td>{{ $item->order }}</td>
                                     <td>
+                                        {{-- Edit --}}
                                         <a href="{{ url("auth/groups/$item->id/edit") }}">
                                             <i class="fontello-edit" title="编辑"></i>
                                         </a>
+
+                                        {{-- Move Up --}}
+                                        <a href="{{ url("auth/groups/$item->id/move/up") }}" disabled>
+                                            <i class="icon-arrow-up" title="上移"></i>
+                                        </a>
+
+                                        {{-- Move Down --}}
+                                        <a href="{{ url("auth/groups/$item->id/move/down") }}">
+                                            <i class="icon-arrow-down" title="下移"></i>
+                                        </a>
+
+                                        {{-- Delete --}}
                                         <a href="javascript:;" onclick="itemDelete('{{ $item->id }}',
                                                 '{{ url("auth/groups/$item->id") }}',
                                                 '{{ csrf_token() }}');">

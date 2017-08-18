@@ -115,6 +115,34 @@ class GroupController extends Controller
 
         $group->delete();
 
+        Group::where('order', '>', $group->order)->decrement('order');
+
         return response()->json();
+    }
+
+    /**
+     * 移动板块
+     *
+     * @param $groupId
+     * @param $action
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function move($groupId, $action)
+    {
+        $group = Group::findOrFail($groupId);
+
+        // 排序大于1，允许上移
+        if ($group->order >=2 && $action == 'up') {
+            Group::where('order', $group->order - 1)->increment('order');
+            $group->decrement('order');
+        }
+
+        // 排序小于最大值，允许下移
+        if ($group->order < Group::max('order') && $action == 'down') {
+            Group::where('order', $group->order + 1)->decrement('order');
+            $group->increment('order');
+        }
+
+        return redirect('auth/groups');
     }
 }
