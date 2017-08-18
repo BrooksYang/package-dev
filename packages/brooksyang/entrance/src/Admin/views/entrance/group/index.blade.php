@@ -42,7 +42,7 @@
                                         </a>
 
                                         {{-- Move Up --}}
-                                        <a href="{{ url("auth/groups/$item->id/move/up") }}" disabled>
+                                        <a href="{{ url("auth/groups/$item->id/move/up") }}">
                                             <i class="icon-arrow-up" title="上移"></i>
                                         </a>
 

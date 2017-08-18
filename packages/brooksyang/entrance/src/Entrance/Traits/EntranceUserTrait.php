@@ -76,6 +76,7 @@ trait EntranceUserTrait
             $group = config('entrance.group');
             $groups = $group::whereHas('modules.permissions', $permissionQuery)
                 ->with(['modules' => $modulesQuery, 'modules.permissions' => $permissionQuery])
+                ->orderBy('order')
                 ->get();
 
             return $groups;

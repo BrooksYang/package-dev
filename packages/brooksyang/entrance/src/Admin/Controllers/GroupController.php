@@ -143,6 +143,9 @@ class GroupController extends Controller
             $group->increment('order');
         }
 
+        // 清空菜单缓存
+        \Cache::tags('user_menus')->flush();
+
         return redirect('auth/groups');
     }
 }
