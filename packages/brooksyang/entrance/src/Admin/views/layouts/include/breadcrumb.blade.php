@@ -15,7 +15,7 @@
                 <a href="javascript:;">{{ @$breadcrumb->module->name }}</a>
             </li>
             <li>
-                <a href="{{ url($breadcrumb->uri ?? '') }}">{{ @$breadcrumb->name }}</a>
+                <a href="{{ url(Request::path()) }}">{{ @$breadcrumb->name }}</a>
             </li>
         @endif
     </ol>
