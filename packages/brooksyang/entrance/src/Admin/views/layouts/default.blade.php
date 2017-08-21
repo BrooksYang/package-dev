@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <link href="ico/favicon.ico" rel="shortcut icon">
+    <link href="{{ url('ico/favicon.ico') }}" rel="shortcut icon">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
