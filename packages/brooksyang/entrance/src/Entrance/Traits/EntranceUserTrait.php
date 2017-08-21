@@ -95,7 +95,7 @@ trait EntranceUserTrait
         $uri = \Request::route()->uri();
         $permission = config('entrance.permission');
 
-        return $permission::with('module.group')->where(['method' => $method, 'uri' => $uri])->first();
+        return $permission::with(['module.group', 'group'])->where(['method' => $method, 'uri' => $uri])->first();
     }
 
     /**
