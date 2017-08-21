@@ -37,7 +37,7 @@
                                         模块
                                     </label>&nbsp;&nbsp;
                                     <label>
-                                        <input type="radio" name="type" value="1" id="groupRadio" {{ old('type') ? 'checked' : '' }}>
+                                        <input type="radio" name="type" value="1" id="groupRadio" {{ (old('type') || $permission->group_id) ? 'checked' : '' }}>
                                         板块
                                     </label>
                                 </div>
@@ -45,7 +45,8 @@
                         </div>
 
                         {{-- Module --}}
-                        <div class="form-group {{ $errors->has('module_id') ? 'has-error' : '' }}" id="moduleForm" style="display: {{ old('type') ? 'none' : 'block' }}">
+                        <div class="form-group {{ $errors->has('module_id') ? 'has-error' : '' }}" id="moduleForm"
+                             style="display: {{ (old('type') || $permission->group_id) ? 'none' : 'block' }}">
                             <div class="col-sm-12">
                                 <select class="form-control" name="module_id">
                                     <option value="">请选择模块</option>
@@ -62,7 +63,8 @@
                         </div>
 
                         {{-- Group --}}
-                        <div class="form-group {{ $errors->has('group_id') ? 'has-error' : '' }}" id="groupForm" style="display: {{ old('type') ? 'block' : 'none' }}">
+                        <div class="form-group {{ $errors->has('group_id') ? 'has-error' : '' }}" id="groupForm"
+                             style="display: {{ (old('type') || $permission->group_id) ? 'block' : 'none' }}">
                             <div class="col-sm-12">
                                 <select class="form-control" name="group_id" id="group">
                                     <option value="">请选择板块</option>

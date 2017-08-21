@@ -20,8 +20,9 @@ class PermissionController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('keyword');
-        $permissions = Permission::with('module')
+        $permissions = Permission::with(['module.group', 'group'])
             ->search($keyword)
+            ->orderBy('group_id', 'desc')
             ->orderBy('module_id', 'desc')
             ->paginate();
 
@@ -50,17 +51,15 @@ class PermissionController extends Controller
      */
     public function store(PermissionRequest $request)
     {
+        $type = $request->get('type');
         $permission = new Permission();
         $permission->name = $request->get('name');
         $permission->method = $request->get('method');
         $permission->uri = trim($request->get('uri'), '/');
         $permission->is_visible = $request->get('is_visible');
         $permission->description = $request->get('description');
-        if ($request->get('type')) {
-            $permission->group_id = $request->get('group_id');
-        } else {
-            $permission->module_id = $request->get('module_id');
-        }
+        $permission->module_id = $type ? 0 : $request->get('module_id');
+        $permission->group_id = $type ? $request->get('group_id') : 0;
         $permission->save();
 
         return redirect('auth/permissions');
@@ -105,17 +104,15 @@ class PermissionController extends Controller
      */
     public function update(PermissionRequest $request, $id)
     {
+        $type = $request->get('type');
         $permission = Permission::findOrFail($id);
         $permission->name = $request->get('name');
         $permission->method = $request->get('method');
         $permission->uri = trim($request->get('uri'), '/');
         $permission->is_visible = $request->get('is_visible');
         $permission->description = $request->get('description');
-        if ($request->get('type')) {
-            $permission->group_id = $request->get('group_id');
-        } else {
-            $permission->module_id = $request->get('module_id');
-        }
+        $permission->module_id = $type ? 0 : $request->get('module_id');
+        $permission->group_id = $type ? $request->get('group_id') : 0;
         $permission->save();
 
         return redirect('auth/permissions');
