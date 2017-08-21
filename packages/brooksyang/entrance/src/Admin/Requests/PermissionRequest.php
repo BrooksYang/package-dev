@@ -36,6 +36,7 @@ class PermissionRequest extends FormRequest
             'type'      => 'required',
             'module_id' => 'required_if:type,0',
             'group_id'  => 'required_if:type,1',
+            'icon'      => 'required_if:type,1',
             'method'    => "required|in:$methods",
             'uri'       => "required|permission:$method,$uri,$id",
         ];
@@ -54,6 +55,7 @@ class PermissionRequest extends FormRequest
             'type.required'         => '请选择权限所属类型',
             'module_id.required_if' => '请选择模块',
             'group_id.required_if'  => '请选择板块',
+            'icon.required_if'      => '请选择菜单图标',
             'method.required'       => '请选择请求方法',
             'method.in'             => '请求方法不正确',
             'uri.required'          => '请输入URI',

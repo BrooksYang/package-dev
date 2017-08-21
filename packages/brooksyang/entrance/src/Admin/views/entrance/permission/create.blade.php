@@ -37,7 +37,7 @@
                                         模块
                                     </label>&nbsp;&nbsp;
                                     <label>
-                                        <input type="radio" name="type" value="1" id="groupRadio" {{ (old('type') || $permission->group_id) ? 'checked' : '' }}>
+                                        <input type="radio" name="type" value="1" id="groupRadio" {{ (old('type') || @$permission->group_id) ? 'checked' : '' }}>
                                         板块
                                     </label>
                                 </div>
@@ -46,7 +46,7 @@
 
                         {{-- Module --}}
                         <div class="form-group {{ $errors->has('module_id') ? 'has-error' : '' }}" id="moduleForm"
-                             style="display: {{ (old('type') || $permission->group_id) ? 'none' : 'block' }}">
+                             style="display: {{ (old('type') || @$permission->group_id) ? 'none' : 'block' }}">
                             <div class="col-sm-12">
                                 <select class="form-control" name="module_id">
                                     <option value="">请选择模块</option>
@@ -64,7 +64,7 @@
 
                         {{-- Group --}}
                         <div class="form-group {{ $errors->has('group_id') ? 'has-error' : '' }}" id="groupForm"
-                             style="display: {{ (old('type') || $permission->group_id) ? 'block' : 'none' }}">
+                             style="display: {{ (old('type') || @$permission->group_id) ? 'block' : 'none' }}">
                             <div class="col-sm-12">
                                 <select class="form-control" name="group_id" id="group">
                                     <option value="">请选择板块</option>
@@ -76,6 +76,18 @@
                                 </select>
                                 @if ($errors->has('group_id'))
                                     <span class="help-block"><strong>{{ $errors->first('group_id') }}</strong></span>
+                                @endif
+                            </div>
+                        </div>
+
+                        {{-- Icon --}}
+                        <div class="form-group {{ $errors->has('icon') ? 'has-error' : '' }}" id="iconForm"
+                             style="display: {{ (old('type') || @$permission->group_id) ? 'block' : 'none' }}">
+                            <div class="col-sm-12">
+                                <input class="form-control input-lg" type="text" name="icon" value="{{ @$permission->icon ?: old('icon') ?: 'fa fa-sun-o' }}"
+                                       placeholder="菜单图标">
+                                @if ($errors->has('icon'))
+                                    <span class="help-block"><strong>{{ $errors->first('icon') }}</strong></span>
                                 @endif
                             </div>
                         </div>
@@ -156,10 +168,12 @@
         $('#groupRadio').click(function () {
             $('#moduleForm').hide();
             $('#groupForm').show();
+            $('#iconForm').show();
         });
 
         $('#moduleRadio').click(function () {
             $('#groupForm').hide();
+            $('#iconForm').hide();
             $('#moduleForm').show();
         });
     </script>

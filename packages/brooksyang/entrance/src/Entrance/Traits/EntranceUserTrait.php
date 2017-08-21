@@ -75,7 +75,8 @@ trait EntranceUserTrait
             // 获取该角色可访问并且可见的权限菜单
             $group = config('entrance.group');
             $groups = $group::whereHas('modules.permissions', $permissionQuery)
-                ->with(['modules' => $modulesQuery, 'modules.permissions' => $permissionQuery, 'groups'])
+                ->orWhereHas('permissions')
+                ->with(['modules' => $modulesQuery, 'modules.permissions' => $permissionQuery, 'permissions'])
                 ->orderBy('order')
                 ->get();
 

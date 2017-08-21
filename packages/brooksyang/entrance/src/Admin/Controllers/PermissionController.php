@@ -60,6 +60,7 @@ class PermissionController extends Controller
         $permission->description = $request->get('description');
         $permission->module_id = $type ? 0 : $request->get('module_id');
         $permission->group_id = $type ? $request->get('group_id') : 0;
+        $permission->icon = $type ? $request->get('icon') : null;
         $permission->save();
 
         return redirect('auth/permissions');
@@ -113,6 +114,7 @@ class PermissionController extends Controller
         $permission->description = $request->get('description');
         $permission->module_id = $type ? 0 : $request->get('module_id');
         $permission->group_id = $type ? $request->get('group_id') : 0;
+        $permission->icon = $type ? $request->get('icon') : null;
         $permission->save();
 
         return redirect('auth/permissions');
