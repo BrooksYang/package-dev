@@ -1,46 +1,57 @@
 @extends('entrance::layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <!-- Cotainer -->
+                <div class="paper-wrap bevel tlbr">
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                    {{-- App Name --}}
+                    <div id="paper-top">
+                        <div class="row">
+                            <div class="col-lg-12 no-pad">
+                                <a class="navbar-brand logo-text" href="#">{{ config('app.name', 'Laravel') }}</a>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
+                    <!-- CONTENT -->
+                    <div style="min-height:400px;" class="wrap-fluid" id="paper-bg">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="account-box">
+
+                                    {{-- Login Form --}}
+                                    @if (session('status'))
+                                        <div class="alert alert-success">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
+
+                                    {{-- Login Form --}}
+                                    <form role="form" method="POST" action="{{ route('password.email') }}">
+                                        {{ csrf_field() }}
+
+                                        {{-- Email --}}
+                                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                            <label>邮箱</label>
+                                            <input id="email" type="email" class="form-control" name="email"
+                                                   value="{{ old('email') }}" required autofocus>
+                                            @if ($errors->has('email'))
+                                                <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
+                                            @endif
+                                        </div>
+
+                                        {{-- Send Password Reset Link --}}
+                                        <button class="btn btn btn-primary pull-right" type="submit">发送链接</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
