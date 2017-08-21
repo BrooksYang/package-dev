@@ -2,6 +2,7 @@
 
 namespace BrooksYang\Entrance\Controllers;
 
+use BrooksYang\Entrance\Models\Group;
 use BrooksYang\Entrance\Models\Module;
 use BrooksYang\Entrance\Models\Permission;
 use BrooksYang\Entrance\Requests\PermissionRequest;
@@ -34,10 +35,11 @@ class PermissionController extends Controller
      */
     public function create()
     {
+        $groups = Group::all();
         $modules = Module::all();
         $methods = Permission::$methods;
 
-        return view('entrance::entrance.permission.create', compact('modules', 'methods'));
+        return view('entrance::entrance.permission.create', compact('groups', 'modules', 'methods'));
     }
 
     /**
@@ -50,11 +52,15 @@ class PermissionController extends Controller
     {
         $permission = new Permission();
         $permission->name = $request->get('name');
-        $permission->module_id = $request->get('module_id');
         $permission->method = $request->get('method');
         $permission->uri = trim($request->get('uri'), '/');
         $permission->is_visible = $request->get('is_visible');
         $permission->description = $request->get('description');
+        if ($request->get('type')) {
+            $permission->group_id = $request->get('group_id');
+        } else {
+            $permission->module_id = $request->get('module_id');
+        }
         $permission->save();
 
         return redirect('auth/permissions');
@@ -83,10 +89,11 @@ class PermissionController extends Controller
 
         $permission = Permission::findOrFail($id);
 
+        $groups = Group::all();
         $modules = Module::all();
         $methods = Permission::$methods;
 
-        return view('entrance::entrance.permission.create', compact('permission', 'modules', 'methods', 'editFlag'));
+        return view('entrance::entrance.permission.create', compact('permission', 'groups', 'modules', 'methods', 'editFlag'));
     }
 
     /**
@@ -100,11 +107,15 @@ class PermissionController extends Controller
     {
         $permission = Permission::findOrFail($id);
         $permission->name = $request->get('name');
-        $permission->module_id = $request->get('module_id');
         $permission->method = $request->get('method');
         $permission->uri = trim($request->get('uri'), '/');
         $permission->is_visible = $request->get('is_visible');
         $permission->description = $request->get('description');
+        if ($request->get('type')) {
+            $permission->group_id = $request->get('group_id');
+        } else {
+            $permission->module_id = $request->get('module_id');
+        }
         $permission->save();
 
         return redirect('auth/permissions');
