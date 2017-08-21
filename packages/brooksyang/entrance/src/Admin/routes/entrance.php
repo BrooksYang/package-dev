@@ -27,3 +27,8 @@ Route::group(['prefix' => 'auth', 'middleware' => ['web', 'auth', 'permission'],
     Route::resource('users', 'UserController');
 
 });
+
+// Demo
+Route::get('demo', function () {
+    return view('entrance::entrance.index');
+})->middleware(['web', 'auth']);
