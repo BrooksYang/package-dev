@@ -1,6 +1,6 @@
 <?php
 
-namespace BrooksYang\Entrance;
+namespace BrooksYang\Entrance\Commands;
 
 use BrooksYang\Entrance\Database\EntranceTablesSeeder;
 use Illuminate\Console\Command;
