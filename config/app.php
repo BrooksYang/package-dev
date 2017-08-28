@@ -168,6 +168,8 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        BrooksYang\Entrance\EntranceServiceProvider::class,
+        BrooksYang\Entrance\EntranceAdminServiceProvider::class,
 
         /*
          * Application Service Providers...
