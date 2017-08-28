@@ -38,6 +38,8 @@ class InstallCommand extends Command
     {
         $this->call('migrate', ['--path' => str_replace(base_path(), '', __DIR__) . '/../database/migrations']);
 
+        $this->line('Start seeding...');
         $this->call('db:seed', ['--class' => EntranceTablesSeeder::class]);
+        $this->line('Seeded.');
     }
 }

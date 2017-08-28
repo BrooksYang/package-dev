@@ -2,6 +2,7 @@
 
 namespace BrooksYang\Entrance\Database;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class EntranceTablesSeeder extends Seeder
@@ -16,31 +17,37 @@ class EntranceTablesSeeder extends Seeder
         // Create groups
         $group = config('entrance.group');
         $group::truncate();
-        $group::create([
+        $group::insert([
             [
                 'id'          => 1,
                 'name'        => '系统功能',
                 'description' => '系统主要功能',
                 'order'       => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 2,
                 'name'        => '权限控制',
                 'description' => '角色，权限，模块等相关功能的管理',
                 'order'       => 2,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
         ]);
 
         // Create modules
         $module = config('entrance.module');
         $module::truncate();
-        $module::create([
+        $module::insert([
             [
                 'id'          => 1,
                 'name'        => '板块管理',
                 'description' => '系统板块的管理',
                 'icon'        => 'fa fa-sun-o',
                 'group_id'    => 2,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 2,
@@ -48,6 +55,8 @@ class EntranceTablesSeeder extends Seeder
                 'description' => '系统模块的管理',
                 'icon'        => 'fa fa-sun-o',
                 'group_id'    => 2,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 3,
@@ -55,6 +64,8 @@ class EntranceTablesSeeder extends Seeder
                 'description' => '系统权限的管理',
                 'icon'        => 'fa fa-sun-o',
                 'group_id'    => 2,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 4,
@@ -62,6 +73,8 @@ class EntranceTablesSeeder extends Seeder
                 'description' => '系统角色的管理',
                 'icon'        => 'fa fa-sun-o',
                 'group_id'    => 2,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 5,
@@ -69,13 +82,15 @@ class EntranceTablesSeeder extends Seeder
                 'description' => '系统管理员',
                 'icon'        => 'fa fa-sun-o',
                 'group_id'    => 2,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
         ]);
 
         // Create permissions
         $permission = config('entrance.permission');
         $permission::truncate();
-        $permission::create([
+        $permission::insert([
             [
                 'id'          => 1,
                 'name'        => '浏览',
@@ -86,6 +101,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 2,
@@ -97,6 +114,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 3,
@@ -108,6 +127,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 4,
@@ -119,6 +140,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 5,
@@ -130,6 +153,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 6,
@@ -141,6 +166,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 7,
@@ -152,6 +179,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 8,
@@ -163,6 +192,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 9,
@@ -174,6 +205,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 10,
@@ -185,6 +218,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 11,
@@ -196,6 +231,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 12,
@@ -207,6 +244,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 13,
@@ -218,6 +257,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 14,
@@ -229,6 +270,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 15,
@@ -240,6 +283,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 16,
@@ -251,6 +296,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 17,
@@ -262,6 +309,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 18,
@@ -273,6 +322,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 19,
@@ -284,6 +335,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 20,
@@ -295,6 +348,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 21,
@@ -306,6 +361,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 22,
@@ -317,6 +374,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 23,
@@ -328,6 +387,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 24,
@@ -339,6 +400,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 25,
@@ -350,6 +413,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 26,
@@ -361,6 +426,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 27,
@@ -372,6 +439,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 28,
@@ -383,6 +452,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 29,
@@ -394,6 +465,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 30,
@@ -405,6 +478,8 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 0,
                 'icon'        => null,
                 'is_visible'  => 0,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 31,
@@ -416,22 +491,28 @@ class EntranceTablesSeeder extends Seeder
                 'group_id'    => 1,
                 'icon'        => 'fa fa-tachometer',
                 'is_visible'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
         ]);
 
         // Create roles
         $role = config('entrance.role');
         $role::truncate();
-        $role::create([
+        $role::insert([
             [
                 'id'          => 1,
                 'name'        => '超级管理员',
                 'description' => '系统最高权限拥有者',
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'          => 2,
                 'name'        => '测试管理员',
                 'description' => '该角色用于系统功能的测试',
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
         ]);
 
@@ -439,13 +520,15 @@ class EntranceTablesSeeder extends Seeder
         // Create users
         $user = config('entrance.user');
         $user::truncate();
-        $user::create([
+        $user::insert([
             [
                 'id'       => 1,
                 'name'     => 'admin',
                 'email'    => 'admin@admin.com',
                 'password' => bcrypt('123123'),
                 'role_id'  => 1,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
             [
                 'id'       => 2,
@@ -453,6 +536,8 @@ class EntranceTablesSeeder extends Seeder
                 'email'    => 'test@test.com',
                 'password' => bcrypt('123123'),
                 'role_id'  => 2,
+                'created_at'  => Carbon::now(),
+                'updated_at'  => Carbon::now(),
             ],
         ]);
 
