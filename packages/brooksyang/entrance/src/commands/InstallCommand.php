@@ -36,7 +36,7 @@ class InstallCommand extends Command
      */
     public function publishDatabase()
     {
-        $this->call('migrate', ['--path' => __DIR__ . '/../database/migrations']);
+        $this->call('migrate', ['--path' => str_replace(base_path(), '', __DIR__) . '/../database/migrations']);
 
         $this->call('db:seed', ['--class' => EntranceTablesSeeder::class]);
     }
